@@ -1,101 +1,152 @@
-import Image from "next/image";
+// src/app/page.tsx
 
-export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+"use client"; // Ensures this main component runs on the client
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+import React from 'react';
+import AnimatedTextCircle from './components/AnimatedTextCircle';
+import ScrollIndicator from './components/ScrollIndicator';
+import { motion } from 'framer-motion';
+import { FaLinkedin, FaGithub } from 'react-icons/fa';
+import Image from 'next/image';
+
+export default function HomePage() {
+    return (
+        <div className="bg-black text-white font-sans">
+            {/* Hero Section */}
+            <section className="flex flex-col items-center justify-center min-h-screen" style={{ marginTop: '-50px' }}>
+                <AnimatedTextCircle />
+                <div className="mt-6 flex space-x-4">
+                    <a href="https://linkedin.com/in/eljohn-agojo" target="_blank" rel="noopener noreferrer">
+                        <FaLinkedin size={30} className="hover:text-gray-400 transition" />
+                    </a>
+                    <a href="https://github.com/ejagojo" target="_blank" rel="noopener noreferrer">
+                        <FaGithub size={30} className="hover:text-gray-400 transition" />
+                    </a>
+                </div>
+                <ScrollIndicator />
+            </section>
+
+            {/* Professional Experience Section */}
+            <motion.section
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true }}
+                className="py-20 px-8 text-center"
+            >
+                <h2 className="text-4xl font-bold mb-8">Professional Experience</h2>
+                <div className="mt-8 space-y-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    {/* Wayfair */}
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        className="p-6 border border-gray-700 rounded-lg shadow-lg flex flex-col items-center"
+                    >
+                        <div className="flex justify-center items-center mb-4">
+                            <Image src="/Wayfair-Logo.webp" alt="Wayfair" width={100} height={100} className="rounded" />
+                        </div>
+                        <h3 className="text-2xl font-semibold mt-4">Wayfair - IT Engineer (Co-op)</h3>
+                        <p className="text-gray-400">Boston, MA | Jan 2024 - Aug 2024</p>
+                        <ul className="mt-2 text-sm leading-relaxed list-disc list-inside text-left">
+                            <li>Developed an AI-powered Slack support bot using OpenAI’s GPT-4, reducing response times by <strong>40%</strong>.</li>
+                            <li>Automated the deprovisioning of over <strong>500</strong> Chrome devices using PowerShell, saving <strong>100+</strong> hours.</li>
+                            <li>Integrated Zoom API, improving accessibility for over <strong>1,000</strong> users and saving <strong>20+ hours</strong> weekly.</li>
+                        </ul>
+                    </motion.div>
+                    
+                    {/* Cognizant */}
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        className="p-6 border border-gray-700 rounded-lg shadow-lg flex flex-col items-center"
+                    >
+                        <div className="flex justify-center items-center mb-4">
+                            <Image src="/Cognizant-Logo.png" alt="Cognizant" width={100} height={100} className="rounded" />
+                        </div>
+                        <h3 className="text-2xl font-semibold mt-4">Cognizant - Generative AI Externship</h3>
+                        <p className="text-gray-400">Remote | Jun 2024 - Jul 2024</p>
+                        <ul className="mt-2 text-sm leading-relaxed list-disc list-inside text-left">
+                            <li>Developed a pre-trained image classifier for dog breed identification using Hugging Face models, achieving an accuracy of <strong>92%</strong>.</li>
+                            <li>Collaborated in a team-driven AI externship, enhancing project results through cooperative learning.</li>
+                        </ul>
+                    </motion.div>
+
+                    {/* StarterKitz */}
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        className="p-6 border border-gray-700 rounded-lg shadow-lg flex flex-col items-center"
+                    >
+                        <div className="flex justify-center items-center mb-4">
+                            <Image src="/StarterKitz-Logo.webp" alt="StarterKitz" width={100} height={100} className="rounded" />
+                        </div>
+                        <h3 className="text-2xl font-semibold mt-4">StarterKitz - Freelance Developer</h3>
+                        <p className="text-gray-400">Remote | Jun 2024 - Aug 2024</p>
+                        <ul className="mt-2 text-sm leading-relaxed list-disc list-inside text-left">
+                            <li>Built a chef-focused platform using React.js and Firebase, featuring real-time content management.</li>
+                            <li>Utilized Git for efficient collaboration, ensuring consistent project vision and seamless performance across devices.</li>
+                        </ul>
+                    </motion.div>
+                </div>
+                <ScrollIndicator />
+            </motion.section>
+
+            {/* Projects Section */}
+            <motion.section
+                initial={{ opacity: 0, y: 50 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                transition={{ duration: 1 }}
+                viewport={{ once: true }}
+                className="py-20 px-8 text-center"
+            >
+                <h2 className="text-4xl font-bold mb-8">Projects</h2>
+                <div className="grid gap-8 mt-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+                    {/* Hire Track Project */}
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        className="p-6 border border-gray-700 rounded-lg shadow-lg"
+                    >
+                        <video controls className="w-full h-40 object-cover rounded mb-4">
+                            <source src="/videos/hire-track-demo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <h3 className="text-2xl font-semibold mt-4">Hire Track</h3>
+                        <p className="text-gray-400">JavaScript, Chrome Extensions, Google Sheets API</p>
+                        <ul className="mt-2 text-sm leading-relaxed list-disc list-inside text-left">
+                            <li>Developed a Chrome extension to streamline job application tracking.</li>
+                            <li>Integrated Google Sheets API for efficient application history management.</li>
+                            <li>Automated workflows to simplify the job search process and improve productivity.</li>
+                        </ul>
+                        <div className="mt-4 flex justify-center">
+                            <a href="https://github.com/ejagojo/hire-track" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-400 hover:underline">
+                                GitHub Repository
+                            </a>
+                        </div>
+                    </motion.div>
+
+                    {/* Polaroid Me Project */}
+                    <motion.div
+                        whileHover={{ scale: 1.05 }}
+                        className="p-6 border border-gray-700 rounded-lg shadow-lg"
+                    >
+                        <video controls className="w-full h-40 object-cover rounded mb-4">
+                            <source src="/videos/polaroid-me-demo.mp4" type="video/mp4" />
+                            Your browser does not support the video tag.
+                        </video>
+                        <h3 className="text-2xl font-semibold mt-4">Polaroid Me</h3>
+                        <p className="text-gray
+-400">JavaScript, React.js, Spotify API, Tailwind CSS</p>
+                        <ul className="mt-2 text-sm leading-relaxed list-disc list-inside text-left">
+                            <li>Created an interactive app that generates Polaroid-style collages based on user music tastes.</li>
+                            <li>Integrated Spotify API for dynamic, user-centered collage generation.</li>
+                            <li>Automated the collage process for a unique, personalized experience.</li>
+                        </ul>
+                        <div className="mt-4 flex justify-center">
+                            <a href="https://github.com/ejagojo/polaroid-me" target="_blank" rel="noopener noreferrer" className="text-sm text-blue-400 hover:underline">
+                                GitHub Repository
+                            </a>
+                        </div>
+                    </motion.div>
+                </div>
+                <ScrollIndicator />
+            </motion.section>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+    );
 }
