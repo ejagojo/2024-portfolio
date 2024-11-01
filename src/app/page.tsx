@@ -8,10 +8,13 @@ import Footer from './components/Footer';
 import Image from 'next/image';
 import TechnologyTimeline from './components/TechnologyTimeline';
 import { Tooltip } from './components/Tooltip';
+import Navbar from './components/Navbar';
 
 export default function HomePage() {
     return (
         <div className="relative bg-black text-white font-sans overflow-hidden min-h-screen">
+            <Navbar />
+            <div className="pt-28">
             {/* Hero Section with Expanded Background */}
             <section className="relative flex flex-col items-center justify-center min-h-screen text-center">
                 {/* Floating Background Icons with distinct starting positions */}
@@ -258,7 +261,7 @@ export default function HomePage() {
                 <h2 className="text-4xl font-bold mb-12">Technology Timeline</h2>
                 <TechnologyTimeline />
             </motion.section>
-
+            </div>
             {/* Footer */}
             <Footer />
         </div>
