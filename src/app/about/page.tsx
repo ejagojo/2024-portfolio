@@ -1,9 +1,9 @@
-// src/app/components/About.tsx
+"use client";
 
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
-import { Tooltip } from "./Tooltip";
+import { Tooltip } from "../components/Tooltip";
 
 export default function About() {
     return (
