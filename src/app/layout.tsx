@@ -12,7 +12,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
     return (
         <html lang="en">
             <head>
-                {/* Add any custom meta tags here */}
             </head>
             <body className="relative min-h-screen">
                 <Navbar />
