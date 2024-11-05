@@ -176,9 +176,9 @@ export default function About() {
         // Hide the message after 3 seconds
         setTimeout(() => setCopySuccess(''), 3000);
       })
-      .catch((err) => {
-        setCopySuccess('Failed to copy!');
-      });
+      // .catch((err) => {
+      //   setCopySuccess('Failed to copy!');
+      // });
   };
 
   return (
