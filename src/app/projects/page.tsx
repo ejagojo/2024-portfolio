@@ -1,12 +1,10 @@
-// src/app/projects/page.tsx
-
 "use client";
 
 import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Tooltip } from "../components/Tooltip";
-import TechnologyTimeline from "../components/TechnologyTimeline"; // Ensure this component exists and is correctly imported
+import TechnologyTimeline from "../components/TechnologyTimeline"; 
 
 export default function Projects() {
   return (
@@ -42,6 +40,14 @@ export default function Projects() {
               ],
               image: "/assets/polaroid-me.png",
               link: "https://polaroid-me.vercel.app/",
+            },
+            {
+              title: "This website!!!",
+              details: [
+                "Typescript, Next.js, Tailwind CSS",
+              ],
+              image: "/assets/website.png",
+              link: "https://github.com/ejagojo/2024-portfolio.git",
             },
           ].map((project, index) => (
             <Tooltip key={index} text={`Project details for ${project.title}`}>
