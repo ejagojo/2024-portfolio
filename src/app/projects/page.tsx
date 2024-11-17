@@ -4,22 +4,39 @@ import React from "react";
 import { motion } from "framer-motion";
 import Image from "next/image";
 import { Tooltip } from "../components/Tooltip";
-import TechnologyTimeline from "../components/TechnologyTimeline"; 
+import TechnologyTimeline from "../components/TechnologyTimeline";
 
 export default function Projects() {
   return (
-    <div className="py-20 px-8">
+    <div>
       {/* Projects Section */}
       <motion.section
         initial={{ opacity: 0, y: 50 }}
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className="mb-20"
+        className="py-20 px-8"
       >
         <h2 className="text-4xl font-bold mb-12 text-center">Projects</h2>
         <div className="space-y-12">
           {[
+            {
+              title: "This website!!!",
+              details: ["Typescript, Next.js, Tailwind CSS"],
+              image: "/assets/website.png",
+              link: "https://github.com/ejagojo/2024-portfolio.git",
+            },
+            {
+              title: "Poke Trainer",
+              details: [
+                "React.js, CSS, AWS Lambda, AWS DynamoDB, AWS S3",
+                "Designed a web application to generate and manage personalized Pok´emon Trainer Licenses for users.",
+                "Implemented serverless architecture using AWS Lambda and DynamoDB to handle license generation and user data storage.",
+                "Integrated AWS S3 for secure and scalable storage of license assets, ensuring fast access and retrieval.",
+              ],
+              image: "/assets/Poke-Trainer.png",
+              link: "https://github.com/ejagojo/pokemon-license-CloudComp.git",
+            },
             {
               title: "Hire Track",
               details: [
@@ -41,18 +58,10 @@ export default function Projects() {
               image: "/assets/polaroid-me.png",
               link: "https://polaroid-me.vercel.app/",
             },
-            {
-              title: "This website!!!",
-              details: [
-                "Typescript, Next.js, Tailwind CSS",
-              ],
-              image: "/assets/website.png",
-              link: "https://github.com/ejagojo/2024-portfolio.git",
-            },
           ].map((project, index) => (
             <Tooltip key={index} text={`Project details for ${project.title}`}>
               <motion.div
-                className="relative flex flex-col md:flex-row items-center gap-8 p-6 border rounded-lg shadow-lg bg-gradient-to-r from-gray-900 via-purple-800 to-blue-800 hover:scale-105 transition-transform duration-500"
+                className="relative flex flex-col md:flex-row items-center gap-8 p-6 border rounded-lg shadow-lg hover:scale-105 transition-transform duration-500"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -103,7 +112,7 @@ export default function Projects() {
         whileInView={{ opacity: 1, y: 0 }}
         transition={{ duration: 1 }}
         viewport={{ once: true }}
-        className="py-20 px-8 text-center mb-20"
+        className="py-20 px-8 text-center mb-20 "
       >
         <h2 className="text-4xl font-bold mb-12">Skills & Technical Tools</h2>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8 text-gray-300 text-lg">

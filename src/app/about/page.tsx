@@ -227,7 +227,7 @@ export default function About() {
         ].map((experience, index) => (
           <Tooltip key={index} text={`Details about ${experience.title}`}>
             <motion.div
-              className="relative flex flex-col md:flex-row items-center gap-8 p-6 border border-gray-700 rounded-lg shadow-lg bg-gradient-to-r from-gray-900 via-purple-800 to-blue-800 hover:scale-[1.02] transition-transform duration-300"
+              className="relative flex flex-col md:flex-row items-center gap-8 p-6 border border-gray-700 rounded-lg shadow-lg  hover:scale-[1.02] transition-transform duration-300"
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
