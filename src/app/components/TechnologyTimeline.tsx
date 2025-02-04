@@ -1,6 +1,6 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FaReact, FaNodeJs, FaPython, FaAws, FaGithub, FaDocker, FaFigma } from 'react-icons/fa';
+import { FaReact, FaNodeJs, FaPython, FaAws, FaGithub, FaDocker, FaFigma, FaLeaf} from 'react-icons/fa';
 import { Tooltip } from './Tooltip';
 
 const technologies = [
@@ -11,6 +11,7 @@ const technologies = [
     { icon: <FaGithub />, name: 'GitHub', description: 'Source control and collaboration' },
     { icon: <FaDocker />, name: 'Docker', description: 'Containerization and DevOps' },
     { icon: <FaFigma />, name: 'Figma', description: 'UI/UX design tool' },
+    { icon: <FaLeaf />, name: 'SpringBoot', description: 'Backend Development - Rest APIs'}
 ];
 
 const TechnologyTimeline: React.FC = () => {

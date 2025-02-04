@@ -27,7 +27,7 @@ export default function HomePage() {
     <div className="relative text-white font-sans overflow-hidden min-h-screen">
       {/* Background Gradient applied to the parent div */}
       <motion.div
-        className="absolute inset-0 bg-gradient-to-r from-purple-600 via-blue-500 to-indigo-600"
+        className="absolute inset-0 bg-gradient-to-r from-black via-black to-black"
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 2 }}

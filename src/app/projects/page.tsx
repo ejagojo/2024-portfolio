@@ -21,6 +21,16 @@ export default function Projects() {
         <div className="space-y-12">
           {[
             {
+              title: "SplitLy",
+              details: [
+                "React.js, Tailwind CSS, Spring Boot, Firebase, PostgreSQL",
+                "Built a web platform for managing expenses, OCR-based itemized breakdowns, and dynamic user assignment to shared expenses.",
+                "Developed a robust Spring Boot backend with integrated Firebase Authentication and PostgreSQL for secure and efficient data management."
+              ],
+              image: "/assets/splitly.png",
+              link: "https://split-ly-front.vercel.app/"
+            },
+            {
               title: "Hire Track",
               details: [
                 "JavaScript, Chrome Extensions, Google Sheets API",
@@ -62,8 +72,8 @@ export default function Projects() {
                   <Image
                     src={project.image}
                     alt={project.title}
-                    width={300}
-                    height={200}
+                    width={200}
+                    height={100}
                     className="rounded-lg"
                   />
                 </div>
@@ -85,9 +95,15 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="text-blue-400 hover:underline"
                     >
-                      {project.title === "Polaroid Me"
+                      {/* {project.title === "Polaroid Me" 
                         ? "Visit Polaroid Me"
-                        : "GitHub Repository"}
+                        : "GitHub Repository"} */}
+                        {project.title === "SplitLy"
+                        ? "Visit SplitLy"
+                        : project.title === "Polaroid Me"
+                        ? "Visit Polaroid Me"
+                        : "GitHub Repository"
+                        }
                     </a>
                   </p>
                 </div>
