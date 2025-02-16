@@ -1,5 +1,3 @@
-// src/app/components/Footer.tsx
-
 "use client";
 
 import React from 'react';
@@ -12,7 +10,7 @@ export default function Footer() {
             initial={{ opacity: 0, y: 50 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 1, ease: "easeOut" }}
-            className="bg-gray-900 text-gray-400 py-8 px-4 text-center mt-12"
+            className="bg-gray-900 text-gray-400 py-8 px-4 text-center w-full mt-auto"
         >
             <div className="mb-4">
                 <h2 className="text-2xl font-semibold text-white">Connect with Me</h2>

@@ -5,6 +5,7 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 import { Tooltip } from "../components/Tooltip";
 import TechnologyTimeline from "../components/TechnologyTimeline"; 
+import Waves from "../components/Waves";
 
 export default function Projects() {
   return (
@@ -17,6 +18,19 @@ export default function Projects() {
         viewport={{ once: true }}
         className="mb-20"
       >
+        <Waves
+          lineColor="#fff"
+          backgroundColor="rgba(255, 255, 255, 0.2)"
+          waveSpeedX={0.02}
+          waveSpeedY={0.01}
+          waveAmpX={40}
+          waveAmpY={20}
+          friction={0.9}
+          tension={0.01}
+          maxCursorMove={120}
+          xGap={12}
+          yGap={36}
+        />
         <h2 className="text-4xl font-bold mb-12 text-center">Projects</h2>
         <div className="space-y-12">
           {[
@@ -62,7 +76,7 @@ export default function Projects() {
           ].map((project, index) => (
             <Tooltip key={index} text={`Project details for ${project.title}`}>
               <motion.div
-                className="relative flex flex-col md:flex-row items-center gap-8 p-6 border rounded-lg shadow-lg bg-gradient-to-r from-gray-900 via-purple-800 to-blue-800 hover:scale-105 transition-transform duration-500"
+                className="relative flex flex-col md:flex-row items-center gap-8 p-6 border rounded-lg shadow-lg bg-black hover:scale-105 transition-transform duration-500"
                 initial={{ opacity: 0, y: 50 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.2 }}
@@ -95,15 +109,12 @@ export default function Projects() {
                       rel="noopener noreferrer"
                       className="text-blue-400 hover:underline"
                     >
-                      {/* {project.title === "Polaroid Me" 
-                        ? "Visit Polaroid Me"
-                        : "GitHub Repository"} */}
-                        {project.title === "SplitLy"
+                      {project.title === "SplitLy"
                         ? "Visit SplitLy"
                         : project.title === "Polaroid Me"
                         ? "Visit Polaroid Me"
                         : "GitHub Repository"
-                        }
+                      }
                     </a>
                   </p>
                 </div>
@@ -147,7 +158,7 @@ export default function Projects() {
               key={index}
               whileHover={{ scale: 1.05 }}
               transition={{ type: "spring", stiffness: 300 }}
-              className="relative flex flex-col items-center cursor-pointer p-6 bg-gradient-to-br from-purple-500 to-blue-500 rounded-lg shadow-lg hover:scale-105 transition-transform duration-500"
+              className="relative flex flex-col items-center cursor-pointer p-6 bg-black rounded-lg shadow-lg hover:scale-105 transition-transform duration-500"
             >
               <h3 className="text-xl font-semibold mb-4 text-white">
                 {skillCategory.title}

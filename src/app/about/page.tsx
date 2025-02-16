@@ -7,161 +7,9 @@ import { Tooltip } from "../components/Tooltip";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
+import Waves from "../components/Waves";
 
 export default function About() {
-  // Use String.raw to prevent backslash escape issues
-  const latexTemplate = String.raw`
-% resume_template.tex
-
-\documentclass[letterpaper,11pt]{article}
-
-% --------------- PACKAGES -----------------------
-\usepackage{latexsym}
-\usepackage[empty]{fullpage}
-\usepackage{titlesec}
-\usepackage{marvosym}
-\usepackage[usenames,dvipsnames]{color}
-\usepackage{verbatim}
-\usepackage{enumitem}
-\usepackage[hidelinks]{hyperref}
-\usepackage{fancyhdr}
-\usepackage[english]{babel}
-\usepackage{tabularx}
-\usepackage{fontawesome}
-\usepackage[dvipsnames]{xcolor}
-\input{glyphtounicode}
-
-% ---------- RESUME FORMAT ADJUSTMENTS -------------
-\addtolength{\oddsidemargin}{-0.5in}
-\addtolength{\evensidemargin}{-0.5in}
-\addtolength{\textwidth}{1in}
-\addtolength{\topmargin}{-.5in}
-\addtolength{\textheight}{1.0in}
-
-\urlstyle{same}
-
-\raggedbottom
-\raggedright
-\setlength{\tabcolsep}{0in}
-
-\titleformat{\section}{
-  \vspace{-4pt}\scshape\raggedright\large
-}{}
-{0em}{}
-[\color{black}\titlerule \vspace{-5pt}]
-
-\pdfgentounicode=1
-
-% ---------- CUSTOM COMMANDS -----------------------
-\newcommand{\resumeItem}[1]{
-  \item\small{
-    {#1 \vspace{-2pt}}
-  }
-}
-
-\newcommand{\resumeSubheading}[4]{
-  \vspace{-2pt}\item
-    \begin{tabular*}{0.97\textwidth}[t]{l@{\extracolsep{\fill}}r}
-      \textbf{#1} & #2 \\
-      \textit{\small#3} & \textit{\small #4} \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeProjectHeading}[2]{
-    \item
-    \begin{tabular*}{0.97\textwidth}{l@{\extracolsep{\fill}}r}
-      \small#1 & #2 \\
-    \end{tabular*}\vspace{-7pt}
-}
-
-\newcommand{\resumeSubItem}[1]{\resumeItem{#1}\vspace{-4pt}}
-
-\renewcommand\labelitemii{$\vcenter{\hbox{\tiny$\bullet$}}$}
-
-\newcommand{\resumeSubHeadingListStart}{\begin{itemize}[leftmargin=0.15in, label={}]}
-\newcommand{\resumeSubHeadingListEnd}{\end{itemize}}
-\newcommand{\resumeItemListStart}{\begin{itemize}}
-\newcommand{\resumeItemListEnd}{\end{itemize}\vspace{-5pt}}
-
-%-----------------RESUME STARTS HERE----------------------
-
-\begin{document}
-
-%---------- HEADING ----------
-\begin{center}
-  \textbf{\Huge \scshape {{Your Name}}} \\ \vspace{2pt}
-  \href{mailto:{{your.email@example.com}}}{\textcolor{black}{\faEnvelopeO\enspace \textbf{\small {{your.email@example.com}}}}} $|$
-  \href{https://linkedin.com/in/{{your-linkedin}}}{\textcolor{black}{\faLinkedin\enspace \textbf{\small linkedin.com/in/{{your-linkedin}}}}} $|$
-  \href{https://github.com/{{your-github}}}{\textcolor{black}{\faGithub\enspace \textbf{\small github.com/{{your-github}}}}}
-\end{center}
-
-%----------- EDUCATION -----------
-\section{Education}
-\resumeSubHeadingListStart
-  \resumeSubheading
-    {{Your University}}{City, State}
-    {{Your Degree}}{Graduation Date}
-    \vspace{.5mm}
-    \resumeItemListStart
-      \resumeItem{\textbf{Coursework:} List your relevant coursework here.}
-    \resumeItemListEnd
-\resumeSubHeadingListEnd
-
-%----------- PROFESSIONAL EXPERIENCE -----------
-\section{Professional Experience}
-\resumeSubHeadingListStart
-
-  % Experience 1
-  \resumeSubheading
-    {{Company Name}}{City, State or Remote}
-    {{Your Position Title}}{Start Date -- End Date}
-    \resumeItemListStart
-      \resumeItem{Describe your responsibilities and achievements using action verbs and quantifiable results.}
-      \resumeItem{Example: Developed an AI-powered Slack support bot, reducing support response times by \textbf{40\%}.}
-    \resumeItemListEnd
-
-  % Experience 2
-  \resumeSubheading
-    {{Company Name}}{City, State or Remote}
-    {{Your Position Title}}{Start Date -- End Date}
-    \resumeItemListStart
-      \resumeItem{Describe another experience.}
-    \resumeItemListEnd
-
-  % Add more experiences as needed
-
-\resumeSubHeadingListEnd
-
-%----------- PROJECTS -----------
-\section{Projects}
-\resumeSubHeadingListStart
-
-  \resumeProjectHeading
-    {\textbf{{Project Name}} $|$ \emph{\textcolor{black}{{Technologies Used}}}}{}
-    \resumeItemListStart
-      \resumeItem{Describe the project and your contributions.}
-      \resumeItem{Example: Developed a web application that does XYZ using React.js and Firebase.}
-    \resumeItemListEnd
-
-  % Add more projects as needed
-
-\resumeSubHeadingListEnd
-
-%----------- SKILLS & TOOLS -----------
-\section{Skills \& Technical Tools}
-\begin{itemize}[leftmargin=0.15in, label={}]
-  \small{\item{
-    \textbf{Languages}{: List programming languages you are proficient in.} \\
-    \textbf{Web Technologies}{: List web technologies (e.g., React.js, Node.js).} \\
-    \textbf{Technologies}{: List other technologies (e.g., Git, Docker).} \\
-    \textbf{Developer Tools}{: List tools you use (e.g., VS Code, Jira).}
-  }}
-\end{itemize}
-
-%-------------------------------------------
-\end{document}
-`;
-
   // State to control the visibility of the LaTeX code
   const [showLatex, setShowLatex] = useState(false);
 
@@ -175,10 +23,7 @@ export default function About() {
         setCopySuccess('LaTeX template copied to clipboard!');
         // Hide the message after 3 seconds
         setTimeout(() => setCopySuccess(''), 3000);
-      })
-      // .catch((err) => {
-      //   setCopySuccess('Failed to copy!');
-      // });
+      });
   };
 
   return (
@@ -189,6 +34,20 @@ export default function About() {
       viewport={{ once: true }}
       className="py-20 px-8"
     >
+      <Waves
+        lineColor="#fff"
+        backgroundColor="rgba(255, 255, 255, 0.2)"
+        waveSpeedX={0.02}
+        waveSpeedY={0.01}
+        waveAmpX={40}
+        waveAmpY={20}
+        friction={0.9}
+        tension={0.01}
+        maxCursorMove={120}
+        xGap={12}
+        yGap={36}
+      />
+
       {/* Professional Experience Section */}
       <h2 className="text-4xl font-bold mb-12 text-center">
         Professional Experience
@@ -227,7 +86,7 @@ export default function About() {
         ].map((experience, index) => (
           <Tooltip key={index} text={`Details about ${experience.title}`}>
             <motion.div
-              className="relative flex flex-col md:flex-row items-center gap-8 p-6 border border-gray-700 rounded-lg shadow-lg bg-gradient-to-r from-gray-900 via-purple-800 to-blue-800 hover:scale-[1.02] transition-transform duration-300"
+              className="relative flex flex-col md:flex-row items-center gap-8 p-6 border border-gray-700 rounded-lg shadow-lg bg-black hover:scale-[1.02] transition-transform duration-300"
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: index * 0.2 }}
               viewport={{ once: true }}
