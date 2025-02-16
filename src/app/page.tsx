@@ -12,7 +12,6 @@ import {
 } from "react-icons/fa";
 import AnimatedTextCircle from "./components/AnimatedTextCircle";
 import Waves from "./components/Waves";
-import Footer from "./components/Footer"; // Import Footer Component
 
 export default function HomePage() {
   // Split the welcome text into two lines
