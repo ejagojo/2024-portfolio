@@ -205,23 +205,12 @@ export default function About() {
       <div className="space-y-12 relative z-10">
         {[
           {
-            title: "Wayfair - IT Engineer (Co-op)",
+            title: "Savvas - Software Engineer Intern",
             details: [
-              "Boston, MA | Jan 2024 - Aug 2024",
-              "Developed an AI-powered Slack support bot using Slack Bolt framework and OpenAI’s GPT-4 Turbo model, reducing support response times by 40% and increasing ticket resolution efficiency.",
-              "Automated the deprovisioning of over 500 Chrome devices by creating PowerShell scripts with PSGSuite, reducing manual workload by 95% and saving over 100 hours of manual deprovision of devices.",
-              "Streamlined the allocation of user licenses by integrating Zoom API, improving accessibility for over 1,000 Zoom users and saving 20+ hours per week in manual assignments.",
+              "Boston, MA | Jun 2025 - August 2025",
+              "Incoming Software Engineer Intern",
             ],
-            image: "/Wayfair-Logo.webp",
-          },
-          {
-            title: "Cognizant - Generative AI Externship",
-            details: [
-              "Remote | Jun 2024 - Jul 2024",
-              "Developed a pre-trained image classifier for dog breed identification using Hugging Face models, achieving an accuracy of 92%, demonstrating proficiency in deep learning and transfer learning.",
-              "Collaborated with a team of peers and mentors, enhancing project outcomes and fostering a cooperative learning environment during the AI externship.",
-            ],
-            image: "/Cognizant-Logo.png",
+            image: "/Savvas-Logo.jpeg",
           },
           {
             title: "StarterKitz - Freelance Developer",
@@ -232,6 +221,16 @@ export default function About() {
               "Worked alongside another freelancer using Git for version control, facilitating efficient collaboration and code management throughout the project.",
             ],
             image: "/starter-kitz.png",
+          },
+          {
+            title: "Wayfair - IT Engineer (Co-op)",
+            details: [
+              "Boston, MA | Jan 2024 - Aug 2024",
+              "Developed an AI-powered Slack support bot using Slack Bolt framework and OpenAI’s GPT-4 Turbo model, reducing support response times by 40% and increasing ticket resolution efficiency.",
+              "Automated the deprovisioning of over 500 Chrome devices by creating PowerShell scripts with PSGSuite, reducing manual workload by 95% and saving over 100 hours of manual deprovision of devices.",
+              "Streamlined the allocation of user licenses by integrating Zoom API, improving accessibility for over 1,000 Zoom users and saving 20+ hours per week in manual assignments.",
+            ],
+            image: "/Wayfair-Logo.webp",
           },
         ].map((experience, index) => (
           <Tooltip key={index} text={`Details about ${experience.title}`}>
